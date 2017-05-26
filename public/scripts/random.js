@@ -6,8 +6,11 @@ function onReady(){
   $('#resetButton').on('click', resetGame);
   $('#guessButton').on('click', guessGame);
 }
+var clicks = 0;
 
 function guessGame(){
+  clicks++;
+  $('#counter').text('number of guesses ' + clicks);
   console.log($('#player1').val());
   console.log($('#player2').val());
   console.log($('#player3').val());
@@ -28,6 +31,12 @@ function guessGame(){
     data: playerGuessesToSend,
     success: function(response){
       console.log('response in guesses: ', response);
+      $('#p1').text(response.player1);
+      $('#p2').text(response.player2);
+      $('#p3').text(response.player3);
+      $('#p4').text(response.player4);
+      $('#p5').text(response.player5);
+      $('#p6').text(response.player6);
     } // end ajax
   });
 }
@@ -36,6 +45,14 @@ function resetGame(){
   console.log('button reset');
   $('#setup').show();
   $('#play').hide();
+  clicks = 0;
+  $('#counter').text('number of guesses ' + clicks);
+$('#player1').val('');
+$('#player2').val('');
+$('#player3').val('');
+$('#player4').val('');
+$('#player5').val('');
+$('#player6').val('');
 }
 
 function startGame(){
@@ -55,4 +72,5 @@ function startGame(){
     }// end ajax
 
   });// end startGame
+$('#max').text('Max Number ' + $('#maxNumberIn').val());
 }
