@@ -47,7 +47,7 @@ function numberEvaluation( guess ){
       evaluate = 'low';
     }
     else if (guess - randomNumber === 0) {
-      evaluate = 'ooooooooooooohmg';
+      evaluate = 'OOOOOOOOO my god!';
     }
     else {
       evaluate = 'high';
