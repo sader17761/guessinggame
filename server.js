@@ -24,5 +24,10 @@ app.post('/maxNumber', function(req, res) {
   var maxNumber = req.body.max;
   randomNumber = Math.floor(Math.random() * maxNumber);
   console.log(randomNumber);
+});// end post
 
+app.post('/playerGuesses', function(req, res) {
+  console.log(req.body);
+  var playerGuesses = req.body;
+  //res.send(playerGuesses.player1 - randomNumber);
 });// end post
