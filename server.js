@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
+//globals
+var randomNumber = 0;
+
 app.listen(2345, function(){
     console.log('server is up on 2345');
 });// end listen
@@ -18,4 +21,8 @@ app.get('/', function(req, res){
 
 app.post('/maxNumber', function(req, res) {
   console.log(req.body);
+  var maxNumber = req.body.max;
+  randomNumber = Math.floor(Math.random() * maxNumber);
+  console.log(randomNumber);
+
 });// end post
