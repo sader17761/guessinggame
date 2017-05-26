@@ -29,5 +29,28 @@ app.post('/maxNumber', function(req, res) {
 app.post('/playerGuesses', function(req, res) {
   console.log(req.body);
   var playerGuesses = req.body;
-  //res.send(playerGuesses.player1 - randomNumber);
+  var evaluationToReturn = {
+    player1: numberEvaluation(playerGuesses.player1),
+    player2: numberEvaluation(playerGuesses.player2),
+    player3: numberEvaluation(playerGuesses.player3),
+    player4: numberEvaluation(playerGuesses.player4),
+    player5: numberEvaluation(playerGuesses.player5),
+    player6: numberEvaluation(playerGuesses.player6)
+  }
+console.log(evaluationToReturn);
+res.send(evaluationToReturn);
 });// end post
+
+function numberEvaluation( guess ){
+  var evaluate = '';
+    if (guess - randomNumber < 0) {
+      evaluate = 'low';
+    }
+    else if (guess - randomNumber === 0) {
+      evaluate = 'ooooooooooooohmg';
+    }
+    else {
+      evaluate = 'high';
+    }
+    return evaluate;
+}
