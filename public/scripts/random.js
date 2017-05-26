@@ -17,4 +17,16 @@ function startGame(){
   $('#setup').hide();
   $('#play').show();
   console.log($('#maxNumberIn').val());
+  var maxNumberToSend = {
+    max: $('#maxNumberIn').val()
+  };// end object
+  $.ajax ({
+    type: 'POST',
+    url: '/maxNumber',
+    data: maxNumberToSend,
+    success: function(response) {
+      console.log('response is: ', response);
+    }// end ajax
+
+  });// end startGame
 }
