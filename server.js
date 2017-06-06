@@ -9,8 +9,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //globals
 var randomNumber = 0;
+var port =  process.env.PORT || 2345;
 
-app.listen(2345, function(){
+app.listen(port, function(){
     console.log('server is up on 2345');
 });// end listen
 
@@ -36,7 +37,7 @@ app.post('/playerGuesses', function(req, res) {
     player4: numberEvaluation(playerGuesses.player4),
     player5: numberEvaluation(playerGuesses.player5),
     player6: numberEvaluation(playerGuesses.player6)
-  }
+  };
 console.log(evaluationToReturn);
 res.send(evaluationToReturn);
 });// end post
